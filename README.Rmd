@@ -1,0 +1,30 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# README
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of presentation_reproducible_computational_research is to ...
+
+Slide presentation _Reproducible computational workflow_ for Bass Connections [Research Module](https://bassconnections.duke.edu/foundational-research-modules) - Data Analysis (Nov. 5, 2021)
+
+- slides are produced in R Markdown.  See:  index.Rmd
+- Clone/download this repository and open index.html on your local computer
+
+## License
+
+[CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0)
+John@LittleDuke.edu
+https://johnlittle.info
