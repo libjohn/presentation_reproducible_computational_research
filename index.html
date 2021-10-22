@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Reproducible computational workflow</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="John Little" />
+    <meta name="date" content="2021-10-22" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link rel="stylesheet" href="mystyles/xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="mystyles/adirondack/story.css" type="text/css" />
+    <link rel="stylesheet" href="mystyles/adirondack/apron.css" type="text/css" />
+    <link rel="stylesheet" href="mystyles/adirondack/descartes.css" type="text/css" />
+    <link rel="stylesheet" href="mystyles/adirondack/tachyons.min.css" type="text/css" />
+    <link rel="stylesheet" href="mystyles/my-theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Reproducible computational workflow
+## CDVS
+### John Little
+### 2021-10-22
+
+---
+
+
+
+
+
+layout: true
+
+
+.footercc[
+&lt;i class="fab fa-creative-commons"&gt;&lt;/i&gt;&amp;nbsp; &lt;i class="fab fa-creative-commons-by"&gt;&lt;/i&gt;&lt;i class="fab fa-creative-commons-nc"&gt;&lt;/i&gt;  &lt;a href = "https://JohnLittle.info"&gt;&lt;span class = "opacity30"&gt;https://&lt;/span&gt;JohnLittle&lt;span class = "opacity30"&gt;.info&lt;/span&gt;&lt;/a&gt; 
+&lt;span class = "opacity30"&gt; | &lt;a href="https://github.com/libjohn/presentation_dashboards_firstWed"&gt;https://github.com/libjohn/presentation_dashboards_firstWed&lt;/a&gt; | 2021-10-22 &lt;/span&gt;
+]
+
+---
+# Whoami / who_are_we
+
+- john little
+- center for Data &amp; Visualization Sciences
+
+---
+# Foundations of reproducible computational research
+
+_WAS -&gt;_  Data Analysis and Workflow Management 
+
+---
+# outline
+
+- Project Management
+- Data
+- Literate Coding
+- Visualizing
+- Archiving
+
+---
+# From Data toward information
+
+**Data** is _given._ **Information** is _taken._
+
+
+- **Data**: Recorded facts.
+- **Information**: a particular form of data well suited to communicate with humans and intended to guide conclusions, beliefs, decision, and action.
+
+
+Footnote: Kaplan. 2011.  https://dtkaplan.github.io/SDS-book/tidy-data.html
+---
+# Data
+
+- Your raw data sources 
+- Ancillary data
+
+_citeable, archived, transparent_
+
+- Finding it?  Come See CVS
+
+We'll come back to data processes in a moment
+---
+# _Project Management_ and file structure
+
+- Source code is the _workflow orchestrator_  used to manage project elements
+	1. data wrangling 
+	2. analysis 
+	3. visualization
+	4. reporting 
+	5. archiving
+-  example: file management hierarchical structure
+-  example: RStudio IDE with git version control
+
+---
+# _Data_:
+
+- Generate and manage data and analysis with code 
+- Incorporate found and produced data into the same project
+- Data wrangling (normalization &amp; cleaning) as reproducible processes
+- Protect personally identifiable information (PRDN)
+- Relational database systems bring complexity: great power and administrative responsibility
+- example:  tidy data
+- example tools:  OpenRefine ; R notebooks ; Python Jupyter notebooks
+
+---
+# _Literate Coding Notebooks_  
+
+combine code with prose and visualizations
+
+-  Analysis AND report writing
+	- Render reports from code
+	- Data code-books are part of the project
+	- Reports...
+
+---
+# Literate coding, continued...
+
+-  Analysis AND report writing. (CONTINUED)
+	- **Reports**: Notebooks can be used to _show the work_ without needing to reproduce the exact compute environment 
+	-  _Markdown_
+		-  Structure your analysis and documentation
+		-  _Reports are derived and rendered_ from notebooks
+			- Generate slides, dashboards, documents, visualizations, etc. from the same source code 
+			- Static and Interactive documents work well with R Markdown literate coding
+	
+-  examples: Jupyter Notebooks and R Markdown documents
+
+---
+# _Visualizing_ ("graphics") &amp; Spatial Analysis (GIS &amp; Mapping)
+
+-  Use code-based tools 
+- example:  grammar of graphics with ggplot2
+- example: altair
+- example: spatial analysis with the sf package in R
+
+---
+# _Archiving_
+
+-  _ Version Control_ (Git) + Social Coding for collaboration &amp; self-documenting the story of your code (i.e. your project.) within a code repository [GitHub | GitLab | BitBucket]
+-  Archival _Repositories_ 
+	-  disciplinary v institutional
+	-  data repositories 
+	-  DOIs for output: Article, Code, etc. (i.e. Publishing)
+-  _Containers_: computational and archival representations of your project at various publishable milestones
+
+---
+layout: false
+class:  middle, center
+
+&lt;br&gt;
+
+.bg-washed-blue.b--navy.ba.bw2.br3.shadow-5.ph4.mt5[
+
+![Rfun](images/rfun.png# fl l-4 w-2-12th)
+
+## John R Little
+
+.seagull[
+.f5[Data Science Librarian  
+Center for Data &amp; Visualization Sciences  
+Duke University Libraries  
+]
+]
+
+.f7[https://johnlittle.info  
+https://Rfun.library.duke.edu  
+https://library.duke.edu/data  
+]
+]
+
+
+
+&lt;i class="fab fa-creative-commons fa-2x"&gt;&lt;/i&gt; &amp;nbsp; &lt;i class="fab fa-creative-commons-by fa-2x"&gt;&lt;/i&gt;&lt;i class="fab fa-creative-commons-nc fa-2x"&gt;&lt;/i&gt;  
+.f6.moon-gray[Creative Commons:  Attribution-NonCommercial 4.0]  
+.f7.moon-gray[https://creativecommons.org/licenses/by-nc/4.0]
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "%current%",
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "16:9",
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
