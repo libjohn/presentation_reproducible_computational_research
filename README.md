@@ -19,5 +19,6 @@ Module](https://bassconnections.duke.edu/foundational-research-modules)
 
 ## License
 
-[CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0)
-<John@LittleDuke.edu> <https://johnlittle.info>
+[CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0)  
+<John.Little@Duke.edu>  
+<https://johnlittle.info>
