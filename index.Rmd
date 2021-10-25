@@ -53,51 +53,103 @@ layout: true
 
 .footercc[
 <i class="fab fa-creative-commons"></i>&nbsp; <i class="fab fa-creative-commons-by"></i><i class="fab fa-creative-commons-nc"></i>  <a href = "https://JohnLittle.info"><span class = "opacity30">https://</span>JohnLittle<span class = "opacity30">.info</span></a> 
-<span class = "opacity30"> | <a href="https://github.com/libjohn/presentation_dashboards_firstWed">https://github.com/libjohn/presentation_dashboards_firstWed</a> | `r Sys.Date()` </span>
+<span class = "opacity30"> | <a href="https://github.com/libjohn/presentation_reproducible_computational_research">https://github.com/libjohn/presentation_reproducible_computational_research</a> | `r Sys.Date()` </span>
 ]
 
 ---
-# Whoami / who_are_we
+class: img-right-full
 
-- john little
-- center for Data & Visualization Sciences
+![](images/cdvs_webpage_screenshot_url.png)
+
+# Whoami
+
+- John Little
+- Host of Rfun.library.duke.edu
+- Center for Data & Visualization Sciences
 
 ---
+class: center
 # Foundations of reproducible computational research
 
-_WAS ->_  Data Analysis and Workflow Management 
+Data Analysis and Workflow Management 
+
+--
+
+## Reproducibility
+
+--
+_Reproducibility is about being as lazy as possible_  
+.right[.f4.light-silver[-- Hadley Wickham]]
+
+--
+
+So you can recreate your environment as easily as possible
+
+--
+
+_Lazy in a good way_  
+.f4.light-silver[-- Thomas Mock]
+
 
 ---
-# outline
+class: col-2
 
+# Outline
+
+```{r echo=FALSE}
+fontawesome::fa(name = "tasks", fill = "#ffd960", fill_opacity = .6, height = "12em", width = "12em")
+# fontawesome::fa_png(name = "tasks", file = "images/tasks.png", fill = "goldenrod", fill_opacity = .4, height = "5in")
+```
+
+<br>  
 - Project Management
 - Data
 - Literate Coding
 - Visualizing
+- Report products
 - Archiving
+
 
 ---
 # From Data toward information
 
-**Data** is _given._ **Information** is _taken._
+**Data** is _given._ **Information** is _taken._  
+.right.f3.moon-gray[-- Daniel Kaplan. 2011.]
 
 
 - **Data**: Recorded facts.
 - **Information**: a particular form of data well suited to communicate with humans and intended to guide conclusions, beliefs, decision, and action.
 
-
-Footnote: Kaplan. 2011.  https://dtkaplan.github.io/SDS-book/tidy-data.html
 ---
-# Data
+class: col-2  
 
-- Your raw data sources 
-- Ancillary data
+### YOUR data  
+- Raw data sources  
+- Ancillary data  
 
-_citeable, archived, transparent_
+_Citeable, archived, transparent_
 
-- Finding it?  Come See CVS
+.center[
+```{r echo=FALSE}
+fontawesome::fa(name = "database", fill = "#a1b83a", fill_opacity = .6, height = "6em", width = "6em")
+# fontawesome::fa_png(name = "tasks", file = "images/tasks.png", fill = "goldenrod", fill_opacity = .4, height = "5in")
+```
+]  
 
-We'll come back to data processes in a moment
+
+### Finding data  
+
+Center for Data & Visualization Sciences  
+
+AskData@Duke.edu
+
+.center[
+```{r echo=FALSE}
+fontawesome::fa(name = "server", fill = "#a1b83a", fill_opacity = .6, height = "6em", width = "6em")
+# fontawesome::fa_png(name = "tasks", file = "images/tasks.png", fill = "goldenrod", fill_opacity = .4, height = "5in")
+```
+]
+
 ---
 # _Project Management_ and file structure
 
@@ -107,8 +159,54 @@ We'll come back to data processes in a moment
 	3. visualization
 	4. reporting 
 	5. archiving
--  example: file management hierarchical structure
--  example: RStudio IDE with git version control
+
+-  Example: RStudio IDE with git version control
+
+```{r echo=FALSE}
+fontawesome::fa(name = "r-project")
+```
+
+
+```{r echo=FALSE}
+fontawesome::fa(name = "git")  
+```
+
+```{r echo=FALSE}
+fontawesome::fa(name = "github")  
+```
+
+```{r echo=FALSE}
+fontawesome::fa(name = "gitlab")  
+```
+
+```{r echo=FALSE}
+fontawesome::fa(name = "bitbucket")  
+```
+
+
+---
+
+# Example project directory structure
+
+.f4[ProjectName/
+  - README.MD
+  - Dataset/
+    - Raw Data/
+    - Processed Data/
+      - YYYY-MM-DDVersion(s)
+      - Better than YYYY-mm-DD:  use version control
+    - Analysis (or Code)/
+      - Data cleaning/
+      - Data preprocessing/
+      - Output/
+        - Graphs
+        - Tables
+    - Publications/
+      - Data Products (R Markdown reports, slides, dashboards, MS Word, PDF, LaTex)
+      - .bib file]
+
+
+.f4[https://guides.lib.berkeley.edu/c.php?g=652220&p=4575532]
 
 ---
 # _Data_:
