@@ -35,8 +35,9 @@ knitr::opts_chunk$set(
   warning = FALSE,
   hiline = TRUE
 )
-# library(tidyverse)
+library(tidyverse)
 library(htmltools)
+library(gt)
 tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
@@ -153,14 +154,15 @@ fontawesome::fa(name = "server", fill = "#a1b83a", fill_opacity = .6, height = "
 ---
 # _Project Management_ and file structure
 
-- Source code is the _workflow orchestrator_  used to manage project elements
-	1. data wrangling 
-	2. analysis 
-	3. visualization
-	4. reporting 
-	5. archiving
+Source code is the _workflow orchestrator_  used to manage project elements
 
--  Example: RStudio IDE with git version control
+1. data wrangling 
+2. analysis 
+3. visualization
+4. reporting 
+5. archiving
+
+Example: RStudio IDE with git version control
 
 ```{r echo=FALSE}
 fontawesome::fa(name = "r-project")
@@ -190,23 +192,22 @@ fontawesome::fa(name = "bitbucket")
 
 .f4[ProjectName/
   - README.MD
-  - Dataset/
-    - Raw Data/
-    - Processed Data/
+  - Data/
+    - Raw data/
+    - Wrangled and cleaned data/
       - YYYY-MM-DDVersion(s)
       - Better than YYYY-mm-DD:  use version control
-    - Analysis (or Code)/
-      - Data cleaning/
-      - Data preprocessing/
-      - Output/
-        - Graphs
-        - Tables
-    - Publications/
-      - Data Products (R Markdown reports, slides, dashboards, MS Word, PDF, LaTex)
-      - .bib file]
+  - Analysis (or Code)/
+    - Data cleaning/
+    - Models/
+  - Output and report products/
+    - Report products (R Markdown reports, slides, dashboards, MS Word, PDF, LaTex)
+    - Graphs or images/
+    - Tables
+    - Publications
+    - ebooks
+    - .bib file]
 
-
-.f4[https://guides.lib.berkeley.edu/c.php?g=652220&p=4575532]
 
 ---
 # _Data_:
@@ -216,49 +217,150 @@ fontawesome::fa(name = "bitbucket")
 - Data wrangling (normalization & cleaning) as reproducible processes
 - Protect personally identifiable information (PRDN)
 - Relational database systems bring complexity: great power and administrative responsibility
-- example:  tidy data
-- example tools:  OpenRefine ; R notebooks ; Python Jupyter notebooks
+- Tidy data
+
+Some good _reproducible_ data wrangling tool options:  
+- OpenRefine ; R notebooks ; Jupyter notebooks
 
 ---
-# _Literate Coding Notebooks_  
+## Tidy data definition  
 
-combine code with prose and visualizations
+- Every column is a variable  
+- Every row is an observation  
+- Every cell is a single value  
+![tidy data](images/tidy-1.png "tidy data")
+.center.f6[https://tidyr.tidyverse.org/articles/tidy-data.html#tidy-data ● https://r4ds.had.co.nz/tidy-data.html#tidy-data-1]
 
+---
+
+## Example Untidy data
+
+```{r Untidy data, echo=FALSE}
+
+tidyr::relig_income %>% slice_head(n = 6) %>% gt()
+
+```
+
+Problem?
+
+--
+
+Column headers are values, not variable names
+
+---
+
+## Example Tidy data
+
+```{r wide data, echo=FALSE}
+relig_income %>% 
+  pivot_longer(2:last_col(), names_to = "income") %>% 
+  arrange(income) %>% 
+  slice_head(n = 6) %>% 
+  gt() %>% 
+    tab_header(
+    title = "Religious income") %>% 
+  tab_source_note("tidyr::relig_incom<br>Downloaded from https://www.pewforum.org/religious-landscape-study/ (downloaded November 2009)") %>% 
+  tab_options(table.width = pct(90))
+```
+
+
+---
+# _Literate coding_  
+
+Combine code with prose and visualizations
+
+- Use prose to explain analysis
 -  Analysis AND report writing
-	- Render reports from code
 	- Data code-books are part of the project
-	- Reports...
+	- Render reports from code (_report products_)
+	-  Structure your analysis and documentation
+	  	- Markdown
+---
+class: img-caption  
+
+![Jupyter Notebook](images/jupyter_notebook.png "Jupyter Notebook")
+
+.bg-washed-red[↑ Example jupyter notebook ↑]  
+.f5[https://arogozhnikov.github.io/2016/09/10/jupyter-features.html]
 
 ---
-# Literate coding, continued...
+# Visualize & spatial analysis
+Use code-based tools  .f6[or tools with reproducible features]
 
--  Analysis AND report writing. (CONTINUED)
-	- **Reports**: Notebooks can be used to _show the work_ without needing to reproduce the exact compute environment 
-	-  _Markdown_
-		-  Structure your analysis and documentation
-		-  _Reports are derived and rendered_ from notebooks
-			- Generate slides, dashboards, documents, visualizations, etc. from the same source code 
-			- Static and Interactive documents work well with R Markdown literate coding
-	
--  examples: Jupyter Notebooks and R Markdown documents
+
+![](images/plot-gallery.png # l-0 t-3-12th w-two-thirds h-80pct ofv absolute)
+![](images/tableau.jpg# r-0 t-60pct w-2-12th h-30pct ofv absolute)
+![](images/ggplot2.png# w-4-12th h-70pct t-0 r-0 ofv absolute)
+![](images/altair-logo.png# w-4-12th h-50pct t-50pct r-4 ofv absolute)
 
 ---
-# _Visualizing_ ("graphics") & Spatial Analysis (GIS & Mapping)
+# _Report products_
 
--  Use code-based tools 
-- example:  grammar of graphics with ggplot2
-- example: altair
-- example: spatial analysis with the sf package in R
+Leverage your literate coding analysis and report writing
+
+- _Reports are derived and rendered_ from literate code documents
+- Use rendered notebooks to _show your work_ .f3[without requiring the reader to reproduce the exact compute environment] 
+- Generate slides, dashboards, documents, visualizations, etc. from the same source code 
+
+Static and interactive documents work well with R Markdown literate coding 
+
+
 
 ---
 # _Archiving_
 
--  _ Version Control_ (Git) + Social Coding for collaboration & self-documenting the story of your code (i.e. your project.) within a code repository [GitHub | GitLab | BitBucket]
--  Archival _Repositories_ 
+-  _Version Control_ = (Git) + Social Coding 
+  - Social Coding Hubs = collaboration + self-documenting your project's story within a .bg-gold[code repository] .gray.f3[GitHub ● GitLab ● BitBucket]
+-  .bg-gold[Archival repositories]  
 	-  disciplinary v institutional
 	-  data repositories 
 	-  DOIs for output: Article, Code, etc. (i.e. Publishing)
+	  - link to your ORCID
 -  _Containers_: computational and archival representations of your project at various publishable milestones
+  - does not require a _reader_ to set up a replica compute environment
+  
+---
+# DOIs and Containers Example
+
+<!-- all versions DOI:  10.5281/zenodo.4908855 -->
+
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.4908855%20(Latest%20Version%20Release)-blue "DOI")](https://doi.org/10.5281/zenodo.4908855)
+
+[![ORCID](https://img.shields.io/badge/ORCID-0000--0002--3600--0972-A6CE39?logo=ORCID&logoColor=A6CE39 "ORCID")](https://orcid.org/0000-0002-3600-0972)
+
+[![Creative Commons CC
+BY-NC](https://img.shields.io/badge/Creative%20Commons-BY--NC-EF9421?logo=creative%20commons&logoColor=EF9421 "CC BY-NC")](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+[![Launch Rstudio
+Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/libjohn/rfun_flipped/master?urlpath=rstudio)
+
+---
+
+# Licensing
+
+- MIT for Software
+- CC-BY for documents
+- CC0 for data
+
+.f4[https://exygy.com/blog/which-license-should-i-use-mit-vs-apache-vs-gpl/  
+https://arstechnica.com/gadgets/2020/02/how-to-choose-an-open-source-license/  
+https://creativecommons.org/  
+]  
+
+
+---
+
+# OSF
+
+Open Science Framework
+
+OSF is a free and open source project management tool that supports researchers throughout their entire project lifecycle.
+
+https://OSF.io
+
+
+![](images/osf_logo.jpg#  r-4 t-60pct w-2-12th h-30pct ofv absolute)
+
 
 ---
 layout: false

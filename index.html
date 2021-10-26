@@ -126,14 +126,15 @@ AskData@Duke.edu
 ---
 # _Project Management_ and file structure
 
-- Source code is the _workflow orchestrator_  used to manage project elements
-	1. data wrangling 
-	2. analysis 
-	3. visualization
-	4. reporting 
-	5. archiving
+Source code is the _workflow orchestrator_  used to manage project elements
 
--  Example: RStudio IDE with git version control
+1. data wrangling 
+2. analysis 
+3. visualization
+4. reporting 
+5. archiving
+
+Example: RStudio IDE with git version control
 
 <svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg>
 
@@ -153,23 +154,22 @@ AskData@Duke.edu
 
 .f4[ProjectName/
   - README.MD
-  - Dataset/
-    - Raw Data/
-    - Processed Data/
+  - Data/
+    - Raw data/
+    - Wrangled and cleaned data/
       - YYYY-MM-DDVersion(s)
       - Better than YYYY-mm-DD:  use version control
-    - Analysis (or Code)/
-      - Data cleaning/
-      - Data preprocessing/
-      - Output/
-        - Graphs
-        - Tables
-    - Publications/
-      - Data Products (R Markdown reports, slides, dashboards, MS Word, PDF, LaTex)
-      - .bib file]
+  - Analysis (or Code)/
+    - Data cleaning/
+    - Models/
+  - Output and report products/
+    - Report products (R Markdown reports, slides, dashboards, MS Word, PDF, LaTex)
+    - Graphs or images/
+    - Tables
+    - Publications
+    - ebooks
+    - .bib file]
 
-
-.f4[https://guides.lib.berkeley.edu/c.php?g=652220&amp;p=4575532]
 
 ---
 # _Data_:
@@ -179,49 +179,941 @@ AskData@Duke.edu
 - Data wrangling (normalization &amp; cleaning) as reproducible processes
 - Protect personally identifiable information (PRDN)
 - Relational database systems bring complexity: great power and administrative responsibility
-- example:  tidy data
-- example tools:  OpenRefine ; R notebooks ; Python Jupyter notebooks
+- Tidy data
+
+Some good _reproducible_ data wrangling tool options:  
+- OpenRefine ; R notebooks ; Jupyter notebooks
 
 ---
-# _Literate Coding Notebooks_  
+## Tidy data definition  
 
-combine code with prose and visualizations
+- Every column is a variable  
+- Every row is an observation  
+- Every cell is a single value  
+![tidy data](images/tidy-1.png "tidy data")
+.center.f6[https://tidyr.tidyverse.org/articles/tidy-data.html#tidy-data ● https://r4ds.had.co.nz/tidy-data.html#tidy-data-1]
 
+---
+
+## Example Untidy data
+
+<div id="dbvqmfasuj" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#dbvqmfasuj .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#dbvqmfasuj .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dbvqmfasuj .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#dbvqmfasuj .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#dbvqmfasuj .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dbvqmfasuj .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dbvqmfasuj .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#dbvqmfasuj .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#dbvqmfasuj .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#dbvqmfasuj .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#dbvqmfasuj .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#dbvqmfasuj .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#dbvqmfasuj .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#dbvqmfasuj .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#dbvqmfasuj .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#dbvqmfasuj .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#dbvqmfasuj .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#dbvqmfasuj .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dbvqmfasuj .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#dbvqmfasuj .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dbvqmfasuj .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#dbvqmfasuj .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#dbvqmfasuj .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dbvqmfasuj .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dbvqmfasuj .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#dbvqmfasuj .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dbvqmfasuj .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#dbvqmfasuj .gt_left {
+  text-align: left;
+}
+
+#dbvqmfasuj .gt_center {
+  text-align: center;
+}
+
+#dbvqmfasuj .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#dbvqmfasuj .gt_font_normal {
+  font-weight: normal;
+}
+
+#dbvqmfasuj .gt_font_bold {
+  font-weight: bold;
+}
+
+#dbvqmfasuj .gt_font_italic {
+  font-style: italic;
+}
+
+#dbvqmfasuj .gt_super {
+  font-size: 65%;
+}
+
+#dbvqmfasuj .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">religion</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">&lt;$10k</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">$10-20k</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">$20-30k</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">$30-40k</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">$40-50k</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">$50-75k</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">$75-100k</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">$100-150k</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">&gt;150k</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">Don't know/refused</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left">Agnostic</td>
+<td class="gt_row gt_right">27</td>
+<td class="gt_row gt_right">34</td>
+<td class="gt_row gt_right">60</td>
+<td class="gt_row gt_right">81</td>
+<td class="gt_row gt_right">76</td>
+<td class="gt_row gt_right">137</td>
+<td class="gt_row gt_right">122</td>
+<td class="gt_row gt_right">109</td>
+<td class="gt_row gt_right">84</td>
+<td class="gt_row gt_right">96</td></tr>
+    <tr><td class="gt_row gt_left">Atheist</td>
+<td class="gt_row gt_right">12</td>
+<td class="gt_row gt_right">27</td>
+<td class="gt_row gt_right">37</td>
+<td class="gt_row gt_right">52</td>
+<td class="gt_row gt_right">35</td>
+<td class="gt_row gt_right">70</td>
+<td class="gt_row gt_right">73</td>
+<td class="gt_row gt_right">59</td>
+<td class="gt_row gt_right">74</td>
+<td class="gt_row gt_right">76</td></tr>
+    <tr><td class="gt_row gt_left">Buddhist</td>
+<td class="gt_row gt_right">27</td>
+<td class="gt_row gt_right">21</td>
+<td class="gt_row gt_right">30</td>
+<td class="gt_row gt_right">34</td>
+<td class="gt_row gt_right">33</td>
+<td class="gt_row gt_right">58</td>
+<td class="gt_row gt_right">62</td>
+<td class="gt_row gt_right">39</td>
+<td class="gt_row gt_right">53</td>
+<td class="gt_row gt_right">54</td></tr>
+    <tr><td class="gt_row gt_left">Catholic</td>
+<td class="gt_row gt_right">418</td>
+<td class="gt_row gt_right">617</td>
+<td class="gt_row gt_right">732</td>
+<td class="gt_row gt_right">670</td>
+<td class="gt_row gt_right">638</td>
+<td class="gt_row gt_right">1116</td>
+<td class="gt_row gt_right">949</td>
+<td class="gt_row gt_right">792</td>
+<td class="gt_row gt_right">633</td>
+<td class="gt_row gt_right">1489</td></tr>
+    <tr><td class="gt_row gt_left">Don’t know/refused</td>
+<td class="gt_row gt_right">15</td>
+<td class="gt_row gt_right">14</td>
+<td class="gt_row gt_right">15</td>
+<td class="gt_row gt_right">11</td>
+<td class="gt_row gt_right">10</td>
+<td class="gt_row gt_right">35</td>
+<td class="gt_row gt_right">21</td>
+<td class="gt_row gt_right">17</td>
+<td class="gt_row gt_right">18</td>
+<td class="gt_row gt_right">116</td></tr>
+    <tr><td class="gt_row gt_left">Evangelical Prot</td>
+<td class="gt_row gt_right">575</td>
+<td class="gt_row gt_right">869</td>
+<td class="gt_row gt_right">1064</td>
+<td class="gt_row gt_right">982</td>
+<td class="gt_row gt_right">881</td>
+<td class="gt_row gt_right">1486</td>
+<td class="gt_row gt_right">949</td>
+<td class="gt_row gt_right">723</td>
+<td class="gt_row gt_right">414</td>
+<td class="gt_row gt_right">1529</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+
+Problem?
+
+--
+
+Column headers are values, not variable names
+
+---
+
+## Example Tidy data
+
+<div id="rtvmlfzddk" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#rtvmlfzddk .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 90%;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#rtvmlfzddk .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rtvmlfzddk .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#rtvmlfzddk .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#rtvmlfzddk .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rtvmlfzddk .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rtvmlfzddk .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#rtvmlfzddk .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#rtvmlfzddk .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#rtvmlfzddk .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#rtvmlfzddk .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#rtvmlfzddk .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#rtvmlfzddk .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#rtvmlfzddk .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#rtvmlfzddk .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#rtvmlfzddk .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#rtvmlfzddk .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#rtvmlfzddk .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rtvmlfzddk .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#rtvmlfzddk .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rtvmlfzddk .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#rtvmlfzddk .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#rtvmlfzddk .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rtvmlfzddk .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rtvmlfzddk .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#rtvmlfzddk .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rtvmlfzddk .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#rtvmlfzddk .gt_left {
+  text-align: left;
+}
+
+#rtvmlfzddk .gt_center {
+  text-align: center;
+}
+
+#rtvmlfzddk .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#rtvmlfzddk .gt_font_normal {
+  font-weight: normal;
+}
+
+#rtvmlfzddk .gt_font_bold {
+  font-weight: bold;
+}
+
+#rtvmlfzddk .gt_font_italic {
+  font-style: italic;
+}
+
+#rtvmlfzddk .gt_super {
+  font-size: 65%;
+}
+
+#rtvmlfzddk .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 65%;
+}
+</style>
+<table class="gt_table">
+  <thead class="gt_header">
+    <tr>
+      <th colspan="3" class="gt_heading gt_title gt_font_normal gt_bottom_border" style>Religious income</th>
+    </tr>
+    
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">religion</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">income</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">value</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left">Agnostic</td>
+<td class="gt_row gt_left">$10-20k</td>
+<td class="gt_row gt_right">34</td></tr>
+    <tr><td class="gt_row gt_left">Atheist</td>
+<td class="gt_row gt_left">$10-20k</td>
+<td class="gt_row gt_right">27</td></tr>
+    <tr><td class="gt_row gt_left">Buddhist</td>
+<td class="gt_row gt_left">$10-20k</td>
+<td class="gt_row gt_right">21</td></tr>
+    <tr><td class="gt_row gt_left">Catholic</td>
+<td class="gt_row gt_left">$10-20k</td>
+<td class="gt_row gt_right">617</td></tr>
+    <tr><td class="gt_row gt_left">Don’t know/refused</td>
+<td class="gt_row gt_left">$10-20k</td>
+<td class="gt_row gt_right">14</td></tr>
+    <tr><td class="gt_row gt_left">Evangelical Prot</td>
+<td class="gt_row gt_left">$10-20k</td>
+<td class="gt_row gt_right">869</td></tr>
+  </tbody>
+  <tfoot class="gt_sourcenotes">
+    <tr>
+      <td class="gt_sourcenote" colspan="3">tidyr::relig_incom&lt;br&gt;Downloaded from https://www.pewforum.org/religious-landscape-study/ (downloaded November 2009)</td>
+    </tr>
+  </tfoot>
+  
+</table>
+</div>
+
+
+---
+# _Literate coding_  
+
+Combine code with prose and visualizations
+
+- Use prose to explain analysis
 -  Analysis AND report writing
-	- Render reports from code
 	- Data code-books are part of the project
-	- Reports...
+	- Render reports from code (_report products_)
+	-  Structure your analysis and documentation
+	  	- Markdown
+---
+class: img-caption  
+
+![Jupyter Notebook](images/jupyter_notebook.png "Jupyter Notebook")
+
+.bg-washed-red[↑ Example jupyter notebook ↑]  
+.f5[https://arogozhnikov.github.io/2016/09/10/jupyter-features.html]
 
 ---
-# Literate coding, continued...
+# Visualize &amp; spatial analysis
+Use code-based tools  .f6[or tools with reproducible features]
 
--  Analysis AND report writing. (CONTINUED)
-	- **Reports**: Notebooks can be used to _show the work_ without needing to reproduce the exact compute environment 
-	-  _Markdown_
-		-  Structure your analysis and documentation
-		-  _Reports are derived and rendered_ from notebooks
-			- Generate slides, dashboards, documents, visualizations, etc. from the same source code 
-			- Static and Interactive documents work well with R Markdown literate coding
-	
--  examples: Jupyter Notebooks and R Markdown documents
+
+![](images/plot-gallery.png # l-0 t-3-12th w-two-thirds h-80pct ofv absolute)
+![](images/tableau.jpg# r-0 t-60pct w-2-12th h-30pct ofv absolute)
+![](images/ggplot2.png# w-4-12th h-70pct t-0 r-0 ofv absolute)
+![](images/altair-logo.png# w-4-12th h-50pct t-50pct r-4 ofv absolute)
 
 ---
-# _Visualizing_ ("graphics") &amp; Spatial Analysis (GIS &amp; Mapping)
+# _Report products_
 
--  Use code-based tools 
-- example:  grammar of graphics with ggplot2
-- example: altair
-- example: spatial analysis with the sf package in R
+Leverage your literate coding analysis and report writing
+
+- _Reports are derived and rendered_ from literate code documents
+- Use rendered notebooks to _show your work_ .f3[without requiring the reader to reproduce the exact compute environment] 
+- Generate slides, dashboards, documents, visualizations, etc. from the same source code 
+
+Static and interactive documents work well with R Markdown literate coding 
+
+
 
 ---
 # _Archiving_
 
--  _ Version Control_ (Git) + Social Coding for collaboration &amp; self-documenting the story of your code (i.e. your project.) within a code repository [GitHub | GitLab | BitBucket]
--  Archival _Repositories_ 
+-  _Version Control_ = (Git) + Social Coding 
+  - Social Coding Hubs = collaboration + self-documenting your project's story within a .bg-gold[code repository] .gray.f3[GitHub ● GitLab ● BitBucket]
+-  .bg-gold[Archival repositories]  
 	-  disciplinary v institutional
 	-  data repositories 
 	-  DOIs for output: Article, Code, etc. (i.e. Publishing)
+	  - link to your ORCID
 -  _Containers_: computational and archival representations of your project at various publishable milestones
+  - does not require a _reader_ to set up a replica compute environment
+  
+---
+# DOIs and Containers Example
+
+&lt;!-- all versions DOI:  10.5281/zenodo.4908855 --&gt;
+
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.4908855%20(Latest%20Version%20Release)-blue "DOI")](https://doi.org/10.5281/zenodo.4908855)
+
+[![ORCID](https://img.shields.io/badge/ORCID-0000--0002--3600--0972-A6CE39?logo=ORCID&amp;logoColor=A6CE39 "ORCID")](https://orcid.org/0000-0002-3600-0972)
+
+[![Creative Commons CC
+BY-NC](https://img.shields.io/badge/Creative%20Commons-BY--NC-EF9421?logo=creative%20commons&amp;logoColor=EF9421 "CC BY-NC")](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+[![Launch Rstudio
+Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/libjohn/rfun_flipped/master?urlpath=rstudio)
+
+---
+
+# Licensing
+
+- MIT for Software
+- CC-BY for documents
+- CC0 for data
+
+.f4[https://exygy.com/blog/which-license-should-i-use-mit-vs-apache-vs-gpl/  
+https://arstechnica.com/gadgets/2020/02/how-to-choose-an-open-source-license/  
+https://creativecommons.org/  
+]  
+
+
+---
+
+# OSF
+
+Open Science Framework
+
+OSF is a free and open source project management tool that supports researchers throughout their entire project lifecycle.
+
+https://OSF.io
+
+
+![](images/osf_logo.jpg#  r-4 t-60pct w-2-12th h-30pct ofv absolute)
+
 
 ---
 layout: false
