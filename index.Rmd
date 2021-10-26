@@ -104,17 +104,22 @@ fontawesome::fa(name = "tasks", fill = "#ffd960", fill_opacity = .6, height = "1
 
 <br>  
 - Project Management
-- Data
+- Data Wrangling
 - Literate Coding
-- Visualizing
+- Analysis
+  - Explanatory/Exploratory
+  - Visualizing
+  - Modeling
 - Report products
 - Archiving
 
 
 ---
-# From Data toward information
+# Data life cycle
 
-**Data** is _given._ **Information** is _taken._  
+Data ⇝ Information ⇝ Publish ⇶ Archive
+
+> **Data** is _given._ **Information** is _taken._  
 .right.f3.moon-gray[-- Daniel Kaplan. 2011.]
 
 
@@ -124,21 +129,7 @@ fontawesome::fa(name = "tasks", fill = "#ffd960", fill_opacity = .6, height = "1
 ---
 class: col-2  
 
-### YOUR data  
-- Raw data sources  
-- Ancillary data  
-
-_Citeable, archived, transparent_
-
-.center[
-```{r echo=FALSE}
-fontawesome::fa(name = "database", fill = "#a1b83a", fill_opacity = .6, height = "6em", width = "6em")
-# fontawesome::fa_png(name = "tasks", file = "images/tasks.png", fill = "goldenrod", fill_opacity = .4, height = "5in")
-```
-]  
-
-
-### Finding data  
+## Finding data  
 
 Center for Data & Visualization Sciences  
 
@@ -147,44 +138,55 @@ AskData@Duke.edu
 .center[
 ```{r echo=FALSE}
 fontawesome::fa(name = "server", fill = "#a1b83a", fill_opacity = .6, height = "6em", width = "6em")
-# fontawesome::fa_png(name = "tasks", file = "images/tasks.png", fill = "goldenrod", fill_opacity = .4, height = "5in")
 ```
 ]
+
+## YOUR data  
+- Raw data sources  
+- Ancillary data  
+
+_Citeable, archived, transparent_
+
+.center[
+```{r echo=FALSE}
+fontawesome::fa(name = "database", fill = "#a1b83a", fill_opacity = .6, height = "6em", width = "6em")
+```
+]  
+
+---
+
+<iframe width="1200" height="600" src="https://www.youtube.com/embed/N2zK3sAtr-4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ---
 # _Project Management_ and file structure
 
-Source code is the _workflow orchestrator_  used to manage project elements
+Use source code as the _workflow orchestrator_ to manage project elements
 
-1. data wrangling 
-2. analysis 
-3. visualization
-4. reporting 
-5. archiving
+1. Data wrangling 
+2. Analysis 
+3. Visualization
+4. Reporting 
+5. Archiving
 
-Example: RStudio IDE with git version control
+---
 
+# Example: RStudio IDE with git version control
+
+.absolute.w-80pct.pa-3.l-1-12th.t-40pct.ba.bw-4.br-4[
 ```{r echo=FALSE}
-fontawesome::fa(name = "r-project")
+# fontawesome::fa(name = "slash", fill = "white", height = "2em", width = "2em") 
+fontawesome::fa(name = "r-project", fill = "#ef9921", height = "4em", width = "4em", fill_opacity = .8) 
+fontawesome::fa(name = "plus", fill = "silver", height = "2em", width = "2em", fill_opacity = .6) 
+fontawesome::fa(name = "git", fill = "#ef9921", height = "4em", width = "4em", fill_opacity = .8)  
+fontawesome::fa(name = "plus", fill = "silver", height = "2em", width = "2em", fill_opacity = .6) 
+fontawesome::fa(name = "github", fill = "#ef9921", height = "4em", width = "4em", fill_opacity = .6)  
+fontawesome::fa(name = "slash", fill = "white", height = "2em", width = "2em") 
+fontawesome::fa(name = "gitlab", fill = "#ef9921", height = "4em", width = "4em", fill_opacity = .6)
+fontawesome::fa(name = "slash", fill = "white", height = "2em", width = "2em") 
+fontawesome::fa(name = "bitbucket", fill = "#ef9921", height = "4em", width = "4em", fill_opacity = .6)  
 ```
-
-
-```{r echo=FALSE}
-fontawesome::fa(name = "git")  
-```
-
-```{r echo=FALSE}
-fontawesome::fa(name = "github")  
-```
-
-```{r echo=FALSE}
-fontawesome::fa(name = "gitlab")  
-```
-
-```{r echo=FALSE}
-fontawesome::fa(name = "bitbucket")  
-```
-
+]
 
 ---
 
@@ -196,9 +198,10 @@ fontawesome::fa(name = "bitbucket")
     - Raw data/
     - Wrangled and cleaned data/
       - YYYY-MM-DDVersion(s)
-      - Better than YYYY-mm-DD:  use version control
-  - Analysis (or Code)/
+      - Use version control ← Better than YYYY-MM-DD
+  - Code | scripts/
     - Data cleaning/
+    - Analysis
     - Models/
   - Output and report products/
     - Report products (R Markdown reports, slides, dashboards, MS Word, PDF, LaTex)
@@ -210,17 +213,18 @@ fontawesome::fa(name = "bitbucket")
 
 
 ---
-# _Data_:
+# _Data Wrangling / Analysis_:
 
 - Generate and manage data and analysis with code 
 - Incorporate found and produced data into the same project
 - Data wrangling (normalization & cleaning) as reproducible processes
 - Protect personally identifiable information (PRDN)
 - Relational database systems bring complexity: great power and administrative responsibility
-- Tidy data
+- ♠♣ Tidy data ♦♥
 
-Some good _reproducible_ data wrangling tool options:  
-- OpenRefine ; R notebooks ; Jupyter notebooks
+##### Some good _reproducible_ data wrangling tool options:  
+
+.center[OpenRefine ● R notebooks ● Jupyter notebooks]
 
 ---
 ## Tidy data definition  
@@ -270,17 +274,17 @@ relig_income %>%
 Combine code with prose and visualizations
 
 - Use prose to explain analysis
+	-  Structure your analysis and documentation
+	  	- Markdown | R Markdown
 -  Analysis AND report writing
 	- Data code-books are part of the project
 	- Render reports from code (_report products_)
-	-  Structure your analysis and documentation
-	  	- Markdown
 ---
 class: img-caption  
 
 ![Jupyter Notebook](images/jupyter_notebook.png "Jupyter Notebook")
 
-.bg-washed-red[↑ Example jupyter notebook ↑]  
+.bg-washed-red.ba.bw-4.br-4[&nbsp; ↑ Example jupyter notebook ↑ &nbsp;]  
 .f5[https://arogozhnikov.github.io/2016/09/10/jupyter-features.html]
 
 ---
@@ -296,13 +300,14 @@ Use code-based tools  .f6[or tools with reproducible features]
 ---
 # _Report products_
 
-Leverage your literate coding analysis and report writing
+Leverage your literate coding
 
-- _Reports are derived and rendered_ from literate code documents
 - Use rendered notebooks to _show your work_ .f3[without requiring the reader to reproduce the exact compute environment] 
-- Generate slides, dashboards, documents, visualizations, etc. from the same source code 
+  - .f3[Document all versions and session information]
+- _Render (derived) reports_ from literate code documents
+  - .f3[Generate slides, dashboards, documents, visualizations, books, PDFs, LaTeX, etc. from the same source code]
 
-Static and interactive documents work well with R Markdown literate coding 
+.center.bg-light-gray.ba.bw-4.br-4[Static and interactive documents work well with R Markdown literate coding ]
 
 
 
@@ -317,14 +322,14 @@ Static and interactive documents work well with R Markdown literate coding
 	-  DOIs for output: Article, Code, etc. (i.e. Publishing)
 	  - link to your ORCID
 -  _Containers_: computational and archival representations of your project at various publishable milestones
-  - does not require a _reader_ to set up a replica compute environment
+  - Zero-install environment: does not require a _reader_ to set up a replica compute environment
   
 ---
 # DOIs and Containers Example
 
 <!-- all versions DOI:  10.5281/zenodo.4908855 -->
 
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.4908855%20(Latest%20Version%20Release)-blue "DOI")](https://doi.org/10.5281/zenodo.4908855)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.4908855%20%28Latest%20Version%20Release%29-blue)](https://doi.org/10.5281/zenodo.4908855)
 
 [![ORCID](https://img.shields.io/badge/ORCID-0000--0002--3600--0972-A6CE39?logo=ORCID&logoColor=A6CE39 "ORCID")](https://orcid.org/0000-0002-3600-0972)
 
