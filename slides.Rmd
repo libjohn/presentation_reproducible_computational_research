@@ -123,8 +123,8 @@ Data ⇝ Information ⇝ Publish ⇶ Archive
 .right.f3.moon-gray[-- Daniel Kaplan. 2011.]
 
 
-- **Data**: Recorded facts.
-- **Information**: a particular form of data well suited to communicate with humans and intended to guide conclusions, beliefs, decision, and action.
+- **Data**: Recorded facts
+- **Information**: a particular form of data well suited to communicate with humans and intended to guide conclusions, beliefs, decision, and action
 
 ---
 class: col-2  
@@ -353,19 +353,27 @@ Leverage your literate coding
   - Zero-install environment: does not require a _reader_ to set up a replica compute environment
   
 ---
+
 # DOIs and Containers Example
 
-<!-- all versions DOI:  10.5281/zenodo.4908855 -->
-
+.pull-left[
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.4908855%20%28Latest%20Version%20Release%29-blue)](https://doi.org/10.5281/zenodo.4908855)
-
-[![ORCID](https://img.shields.io/badge/ORCID-0000--0002--3600--0972-A6CE39?logo=ORCID&logoColor=A6CE39 "ORCID")](https://orcid.org/0000-0002-3600-0972)
-
-[![Creative Commons CC
-BY-NC](https://img.shields.io/badge/Creative%20Commons-BY--NC-EF9421?logo=creative%20commons&logoColor=EF9421 "CC BY-NC")](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 [![Launch Rstudio
 Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/libjohn/rfun_flipped/master?urlpath=rstudio)
+]
+
+.pull-right[
+[![ORCID](https://img.shields.io/badge/ORCID-0000--0002--3600--0972-A6CE39?logo=ORCID&logoColor=A6CE39 "ORCID")](https://orcid.org/0000-0002-3600-0972)
+]
+
+
+.absolute.w-5-12th.pa-3.l-6-12th.t-30pct[
+```{r echo=FALSE}
+fontawesome::fa(name = "orcid", fill = "#a1b83a", fill_opacity = .8, height = "4em", width = "4em") 
+```
+
+]
 
 ---
 
@@ -375,6 +383,18 @@ Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/libjohn/
 - CC-BY for documents
 - CC0 for data
 
+[![Creative Commons CC
+BY-NC](https://img.shields.io/badge/Creative%20Commons-BY--NC-EF9421?logo=creative%20commons&logoColor=EF9421 "CC BY-NC")](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+
+.absolute.w-3-12th.pa-3.l-8-12th.t-10pct[
+```{r echo=FALSE}
+fontawesome::fa(name = "creative-commons-zero", fill = "#a1b83a", fill_opacity = .8, height = "3em", width = "3em") 
+```
+
+<i class="fab fa-creative-commons fa-3x"></i>  <i class="fab fa-creative-commons-by fa-3x"></i>
+
+]
 
 
 
@@ -384,6 +404,8 @@ https://arstechnica.com/gadgets/2020/02/how-to-choose-an-open-source-license/
 https://creativecommons.org/  
 ]  
 
+### Office of Copyright and Scholarly Communications
+.f4[https://library.duke.edu/about/depts/scholcomm]
 
 ---
 
@@ -436,7 +458,7 @@ https://library.duke.edu/data
 
 
 <i class="fab fa-creative-commons fa-2x"></i> &nbsp; <i class="fab fa-creative-commons-by fa-2x"></i><br> 
-.f6.moon-gray[Creative Commons:  Attribution-NonCommercial 4.0]  
+.f6.moon-gray[Creative Commons:  Attribution 4.0]  
 .f7.moon-gray[https://creativecommons.org/licenses/by-nc/4.0]
 
 
