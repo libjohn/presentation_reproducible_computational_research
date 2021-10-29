@@ -13,9 +13,12 @@ Connections [Research
 Module](https://bassconnections.duke.edu/foundational-research-modules)
 - Data Analysis (Nov. 5, 2021)
 
--   slides are produced in R Markdown. See: index.Rmd
--   Clone/download this repository and open index.html on your local
-    computer
+-   slides are produced in R Markdown. See: slides.Rmd
+-   Clone/download this repository and open slides.html on your local
+    computer. Or display the slides.PDF here at GitHub
+
+![Reproducible Data Worfklow
+Pyramid](images/Project%20Foundation%20Pyramid.svg "Reproducible Project Pyramid")
 
 ## License
 
