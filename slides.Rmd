@@ -64,9 +64,12 @@ class: img-right-full
 
 # Whoami
 
-- John Little
-- Host of Rfun.library.duke.edu
-- Center for Data & Visualization Sciences
+
+
+.absolute.t-30pct.f3[John Little  
+Data Science Librarian  
+Host of Rfun.library.duke.edu  
+Center for Data & Visualization Sciences  ]
 
 ---
 class: center
@@ -162,17 +165,19 @@ fontawesome::fa(name = "database", fill = "#a1b83a", fill_opacity = .8, height =
 
 # _Project Management_ and file structure  
 
-.absolute.w-2-12th.l-2-12th.t-30pct.pa2.br-4[
-```{r echo=FALSE}
-fontawesome::fa(name = "route", fill = "#ef9921", height = "6em", width = "6em", fill_opacity = .8) 
-```
-]
-
-.absolute.w-4-12th.l-6-12th.t-30pct.pa2.br-4[1. Data wrangling 
+.absolute.w-4-12th.l-2-12th.t-20pct.pa2.br-4[
+1. Data wrangling 
 2. Analysis 
 3. Visualization
 4. Reporting 
-5. Archiving]
+5. Archiving
+]
+
+.absolute.w-6-12th.l-7-12th.t-3-12th.pa2.br-4[
+```{r echo=FALSE}
+fontawesome::fa(name = "route", fill = "#ef9921", height = "7em", width = "7em", fill_opacity = .8) 
+```
+]
 
 <!-- .absolute.w-11-12th.l-1-12th.t-80pct.center[Use source code as the _workflow orchestrator_ to manage project elements ] -->
 
@@ -199,7 +204,7 @@ fontawesome::fa(name = "bitbucket", fill = "#ef9921", height = "4em", width = "4
 
 ---
 
-# Example: RStudio IDE with git version control
+# Version control and social coding hub
 
 .absolute.w-10-12th.pa-3.l-1-12th.t-40pct.ba.bw-4.br-4[
 ```{r echo=FALSE}
@@ -354,25 +359,43 @@ Leverage your literate coding
   
 ---
 
-# DOIs and Containers Example
+# OSF
+
+Open Science Framework
+
+OSF is a free and open source project management tool that supports researchers throughout their entire project lifecycle.
+
+https://OSF.io
+
+
+![](images/osf_logo.jpg#  r-4 t-60pct w-2-12th h-30pct ofv absolute)
+
+
+
+---
+
+# Related topics  
 
 .pull-left[
+### DOIs  
+
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.4908855%20%28Latest%20Version%20Release%29-blue)](https://doi.org/10.5281/zenodo.4908855)
 
+### Containers  
 [![Launch Rstudio
 Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/libjohn/rfun_flipped/master?urlpath=rstudio)
-]
+]  
 
 .pull-right[
-[![ORCID](https://img.shields.io/badge/ORCID-0000--0002--3600--0972-A6CE39?logo=ORCID&logoColor=A6CE39 "ORCID")](https://orcid.org/0000-0002-3600-0972)
-]
+### Author ID  
 
+[![ORCID](https://img.shields.io/badge/ORCID-0000--0002--3600--0972-A6CE39?logo=ORCID&logoColor=A6CE39 "ORCID")](https://orcid.org/0000-0002-3600-0972)  
 
-.absolute.w-5-12th.pa-3.l-6-12th.t-30pct[
+.absolute.w-5-12th.pa-3.l-7-12th.t-50pct[
 ```{r echo=FALSE}
 fontawesome::fa(name = "orcid", fill = "#a1b83a", fill_opacity = .8, height = "4em", width = "4em") 
 ```
-
+]  
 ]
 
 ---
@@ -406,23 +429,6 @@ https://creativecommons.org/
 
 ### Office of Copyright and Scholarly Communications
 .f4[https://library.duke.edu/about/depts/scholcomm]
-
----
-
-# OSF
-
-Open Science Framework
-
-OSF is a free and open source project management tool that supports researchers throughout their entire project lifecycle.
-
-https://OSF.io
-
-
-![](images/osf_logo.jpg#  r-4 t-60pct w-2-12th h-30pct ofv absolute)
-
-
-
-
 
 
 ---
