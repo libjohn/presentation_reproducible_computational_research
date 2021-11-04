@@ -77,6 +77,14 @@ class: center
 
 Data Analysis and Workflow Management 
 
+.absolute.w-10pct.l-90pct.t-11-12th[
+```{r, echo=FALSE}
+fontawesome::fa(name = "poll", fill = "#CCCCCC", height = "1em", width = "1em") 
+
+```
+]
+
+
 --
 
 ## Reproducibility
@@ -94,6 +102,10 @@ So you can recreate your environment as easily as possible
 _Lazy in a good way_  
 .f4.light-silver[-- Thomas Mock]
 
+
+???
+
+poll:  https://forms.gle/JX5s2dUagtbfyQ8y8
 
 ---
 class: col-2
@@ -158,8 +170,12 @@ fontawesome::fa(name = "database", fill = "#a1b83a", fill_opacity = .8, height =
 
 ---
 
-<iframe width="1200" height="600" src="https://www.youtube.com/embed/N2zK3sAtr-4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="1200" height="600" src="https://www.youtube.com/embed/N2zK3sAtr-4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
 
+.moon-gray.absolute.w-40pct.l-60pct.t-11-12th.f7[Data Sharing and Management Snafu in 3 Short Acts  
+Karen Hanson, Alisa Surkis & Karen Yacobucci,   
+NYU Health Sciences Libraries, 2012  
+]
 
 ---
 
@@ -179,9 +195,18 @@ fontawesome::fa(name = "route", fill = "#ef9921", height = "7em", width = "7em",
 ```
 ]
 
-<!-- .absolute.w-11-12th.l-1-12th.t-80pct.center[Use source code as the _workflow orchestrator_ to manage project elements ] -->
+.absolute.w-10pct.l-90pct.t-11-12th[
+```{r, echo=FALSE}
+fontawesome::fa(name = "poll", fill = "#CCCCCC", height = "1em", width = "1em") 
+
+```
+]
 
 .center.absolute.t-80pct[Use source code as the _workflow orchestrator_ to manage project elements]
+
+???
+
+poll:  https://forms.gle/URntxw8AENXKpTLV6
 
 ---
 
@@ -220,6 +245,18 @@ fontawesome::fa(name = "slash", fill = "white", height = "2em", width = "2em")
 fontawesome::fa(name = "bitbucket", fill = "white", height = "4em", width = "4em")  
 ```
 ]
+
+.absolute.w-10pct.l-90pct.t-11-12th[
+```{r, echo=FALSE}
+fontawesome::fa(name = "poll", fill = "#CCCCCC", height = "1em", width = "1em") 
+
+```
+]
+
+???
+
+poll:  https://forms.gle/vpCpMn4bN5RgmNEd8
+
 
 ---
 
@@ -280,6 +317,18 @@ tidyr::relig_income %>% slice_head(n = 6) %>% gt()
 
 Problem?
 
+.absolute.w-10pct.l-90pct.t-11-12th[
+```{r, echo=FALSE}
+fontawesome::fa(name = "poll", fill = "#CCCCCC", height = "1em", width = "1em") 
+
+```
+]
+
+???
+
+poll:  https://forms.gle/XFYzifpqWLZfzmJx8
+
+
 --
 
 Column headers are values, not variable names
@@ -329,6 +378,11 @@ Use code-based tools  .f6[or tools with reproducible features]
 ![](images/tableau.jpg# r-0 t-60pct w-2-12th h-30pct ofv absolute)
 ![](images/ggplot2.png# w-4-12th h-70pct t-0 r-0 ofv absolute)
 ![](images/altair-logo.png# w-4-12th h-50pct t-50pct r-4 ofv absolute)
+
+???
+
+- grammar of graphics citation
+	- Leland Wilkinson. 1999.
 
 ---
 # _Report products_
