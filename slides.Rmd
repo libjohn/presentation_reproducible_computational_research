@@ -381,7 +381,7 @@ Use code-based tools  .f6[or tools with reproducible features]
 
 ???
 
-- grammar of graphics citation
+- grammar of graphics
 	- Leland Wilkinson. 1999.
 
 ---
